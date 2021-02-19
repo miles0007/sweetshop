@@ -1,0 +1,16 @@
+.product {
+    cursor: pointer;
+    user-select: none;
+}
+
+.product img {
+    user-select: none;
+}
+
+#products_table {
+    overflow: scroll;
+}
+
+.eles {
+    flex-wrap: wrap;
+}
