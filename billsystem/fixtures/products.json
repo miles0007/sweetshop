@@ -1,0 +1,54 @@
+[
+{
+  "model": "billsystem.commodity",
+  "pk": 1,
+  "fields": {
+    "name": "Ice Cream",
+    "in_stock_unit": "MG",
+    "in_stock": 40000,
+    "price": 80,
+    "minimum_unit": "1 packet",
+    "is_available": false,
+    "image": "products/iconfinder_icecream_chokolate__80791.png"
+  }
+},
+{
+  "model": "billsystem.commodity",
+  "pk": 2,
+  "fields": {
+    "name": "Donut",
+    "in_stock_unit": "MG",
+    "in_stock": 80000,
+    "price": 70,
+    "minimum_unit": "per 100mg",
+    "is_available": false,
+    "image": "products/iconfinder_donut_1760351.png"
+  }
+},
+{
+  "model": "billsystem.commodity",
+  "pk": 3,
+  "fields": {
+    "name": "Cup Cake",
+    "in_stock_unit": "MG",
+    "in_stock": 20000,
+    "price": 52,
+    "minimum_unit": "per 100mg",
+    "is_available": false,
+    "image": "products/iconfinder_4_7306440.png"
+  }
+},
+{
+  "model": "billsystem.commodity",
+  "pk": 4,
+  "fields": {
+    "name": "Lollipop",
+    "in_stock_unit": "PIECES",
+    "in_stock": 250,
+    "price": 15,
+    "minimum_unit": "per 100mg",
+    "is_available": false,
+    "image": "products/iconfinder_Lollipop_669951.png"
+  }
+}
+]
