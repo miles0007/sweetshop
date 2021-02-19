@@ -42,43 +42,34 @@
     z-index: 9;
 }
 
+.contrapt {
+    display: flex;
+}
 </style>
 </head>
 <body>
 
 <div class="container">
     <h2>SweetProducts</h2>
-    <div class="row">
+    <div class="row contrapt">
     <div class="column" style="background-color:#aaa;">
         <h4>All Sweets</h4>
         <div class="products">
-            <div class="product m-4 ml-4" id="pr_1">
-                <img style="width: 100px;" class="rm-border" src="https://cdn1.iconfinder.com/data/icons/cartoon-snack/128/cupcake-256.png" alt="cupcake">
-                <h4 class="rm-border justify">Cup Cake</h4>
-                <h5 class="rm-border text-center">₹ <span class="price">25</span></h5>
+            {% for item in commodities %}
+            <div class="product m-4 ml-4" id="pr_{{forloop.counter}}">
+                <img style="width: 100px;" src="{{ item.image.url }}" alt="{{ item.name }}">
+                <h4 class="rm-border justify">{{ item.name }}</h4>
+                <h5 class="rm-border text-center">₹ <span class="price">{{ item.price }}</span></h5>
+                <h6 hidden>{{ item.minimum_unit }}</h6>
             </div>
-            <div class="product m-4 ml-4" id="pr_2">
-                <img style="width: 100px;" class="rm-border" src="https://cdn1.iconfinder.com/data/icons/cartoon-snack/128/donut-256.png" alt="donut">
-                <h4 class="rm-border justify">Donut</h4>
-                <h5 class="rm-border text-center">₹ <span class="price">20</span></h5>
-            </div>
-            <div class="product m-4 ml-4" id="pr_3">
-                <img style="width: 100px;" class="rm-border" src="https://cdn1.iconfinder.com/data/icons/summer-123/512/ice_cream-128.png" alt="icecream">
-                <h4 class="rm-border justify">Ice Cream</h4>
-                <h5 class="rm-border text-center">₹ <span class="price">30</span></h5>
-            </div>
-            <div class="product m-4 ml-4" id="pr_4">
-                <img style="width: 100px;" class="rm-border" src="https://cdn2.iconfinder.com/data/icons/free-color-halloween-icons/24/Candy-02-256.png" alt="lollipop">
-                <h4 class="rm-border justify">Lollipop</h4>
-                <h5 class="rm-border text-center">₹ <span class="price">15</span></h5>
-            </div>
+            {% endfor %}
         </div>
     </div>
     <div class="column" style="background-color:#bbb;">
         <div class="block">
             <div class="weight_calc">
                 <h3>Product Name</h3><br>
-                <h5><b>Price</b><span id="el_price"></span></h5>
+                <h5><b>Price: </b>₹ <span id="el_price"></span> (<span id="min_unit"></span>)</h5>
                 <form name="fixerForm" action="POST" id="fixerForm">
                     <input type="text" name="product" disabled>
                     <input type="text" name="item_id" id='item_id' hidden>

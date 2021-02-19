@@ -2,6 +2,7 @@
 var productEls = document.querySelectorAll('.product');
 var rightBarName = document.getElementsByName('product')[0];
 var priceProduct = document.getElementById('el_price');
+var minUnit = document.getElementById('min_unit');
 var formEl = document.getElementById('fixerForm');
 var formBtn = formEl.querySelector('button');
 var itemID = formEl.querySelector('#item_id');
@@ -20,9 +21,11 @@ productEls.forEach(product => {
         let parentEle = (e.target.parentNode);
         let namingEls = parentEle.querySelector('h4');
         let priceEl = parentEle.querySelector('h5>.price');
+        let minEl = parentEle.querySelector('h6');
         console.log(parentEle.id);
         rightBarName.setAttribute("value", namingEls.innerHTML);
         priceProduct.innerHTML = priceEl.innerHTML; // show pricing
+        minUnit.innerHTML = minEl.innerHTML;        // show minimum Unit of Product
         itemID.setAttribute("value", parentEle.id);
         // button gone to show state
         formBtn.disabled = false;
