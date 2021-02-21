@@ -11,6 +11,10 @@
     overflow: scroll;
 }
 
+.category-item {
+    cursor: pointer;
+}
+
 .eles {
     flex-wrap: wrap;
 }

@@ -54,9 +54,9 @@
     <div class="row contrapt">
     <div class="column" style="background-color:#aaa;">
         <h4>All Sweets</h4>
-        <div class="products">
+        <div class="products" id="category-products">
             {% for item in commodities %}
-            <div class="product m-4 ml-4" id="pr_{{forloop.counter}}">
+            <div class="product m-4 ml-4" id="pr_{{item.id}}">
                 <img style="width: 100px;" src="{{ item.image.url }}" alt="{{ item.name }}">
                 <h4 class="rm-border justify">{{ item.name }}</h4>
                 <h5 class="rm-border text-center">₹ <span class="price">{{ item.price }}</span></h5>
@@ -99,10 +99,19 @@
     </div>
     </div>
 </div>
+
+<div class="container bg-secondary">
+    <ul class="m-5">
+        {% for category in categories %}
+        <li class="category-item" id="cat_{{ category.id }}">{{ category }}</li>
+        {% endfor %}
+    </ul>
+</div>
 <!-- scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous"></script>
 <script src="{% static 'js/home.js' %}"></script>
+<script src="{% static 'js/events.js' %}"></script>
 
 {% verbatim %}
 <script id="table-inserter" type="text/x-handlebars-template">
@@ -113,6 +122,17 @@
         <td hidden>{{product_id}}</td>
       </tr>
  </script>
+
+ <script id="product-create" type="type/x-handlebars-template">
+    {{#each items}}
+    <div class="product m-4 ml-4" id="pr_{{this.id}}">
+        <img style="width: 100px;" src="{{ this.image }}" alt="{{ this.name }}">
+        <h4 class="rm-border justify">{{ this.name }}</h4>
+        <h5 class="rm-border text-center">₹ <span class="price">{{ this.price }}</span></h5>
+        <h6 hidden>{{ this.minimum_unit }}</h6>
+    </div>
+    {{/each}}
+</script>
  {% endverbatim %}
 </body>
 </html>
